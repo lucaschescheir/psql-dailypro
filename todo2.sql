@@ -44,7 +44,9 @@ FROM todoslist2
 where completed_at > '2017-08-01'
 group by priority;
 
-Select MIN(created_at), priority
-from todoslist2
-group by priority
-having priority = 1;
+Select * from todoslist2
+where completed_at IS NULL
+order by
+priority asc,
+created_at asc
+limit 1;
